@@ -15,6 +15,28 @@ export type ExperienceItem = {
 
 export const experiences: ExperienceItem[] = [
   {
+    company: 'Part-Time Mathematics Lecturer',
+    role: 'Part-Time Mathematics Lecturer',
+    period: '2019 – 2021',
+    type: 'teaching',
+    location: 'Mandalay, Myanmar',
+    description:
+      'Taught mathematics to students preparing for national and international competitions, including TIMO, SEAMO, Math Kangaroo, and the National Mathematics Olympiad Myanmar.',
+    projects: [
+      {
+        name: 'Competition Mathematics Teaching',
+        description:
+          'Delivered structured problem-solving sessions to high-achieving students preparing for regional and international maths competitions.',
+        bullets: [
+          'Prepared students for TIMO, SEAMO, Math Kangaroo, and National Mathematics Olympiad competitions.',
+          'Developed curriculum materials for advanced problem-solving techniques.',
+          'Mentored students on analytical thinking, discipline, and competition strategy.',
+        ],
+        technologies: ['Communication', 'Problem-solving', 'Curriculum Design', 'Mentoring'],
+      },
+    ],
+  },
+  {
     company: 'Onify Tech Company',
     role: 'Junior Full Stack Software Developer / Engineer',
     period: 'Jan 2025 – Sep 2025',
@@ -45,28 +67,6 @@ export const experiences: ExperienceItem[] = [
           'Collaborated in an Agile development environment, using Git for version control and contributing to CI/CD pipelines.',
         ],
         technologies: ['Next.js', 'React', 'TypeScript', 'Mantine', 'Supabase', 'Swagger', 'Git', 'CI/CD'],
-      },
-    ],
-  },
-  {
-    company: 'UAT Maths Enrichment Classes',
-    role: 'Part-Time Mathematics Lecturer',
-    period: '2019 – 2021',
-    type: 'teaching',
-    location: 'Mandalay, Myanmar',
-    description:
-      'Taught mathematics to students preparing for national and international competitions, including TIMO, SEAMO, Math Kangaroo, and the National Mathematics Olympiad Myanmar.',
-    projects: [
-      {
-        name: 'Competition Mathematics Teaching',
-        description:
-          'Delivered structured problem-solving sessions to high-achieving students preparing for regional and international maths competitions.',
-        bullets: [
-          'Prepared students for TIMO, SEAMO, Math Kangaroo, and National Mathematics Olympiad competitions.',
-          'Developed curriculum materials for advanced problem-solving techniques.',
-          'Mentored students on analytical thinking, discipline, and competition strategy.',
-        ],
-        technologies: ['Communication', 'Problem-solving', 'Curriculum Design', 'Mentoring'],
       },
     ],
   },
