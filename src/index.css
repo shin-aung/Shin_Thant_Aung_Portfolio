@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-surface text-gray-900 font-sans antialiased; }
+  * { @apply box-border; }
+}
+
+@layer utilities {
+  .section-label { @apply text-xs font-semibold tracking-[0.25em] uppercase text-accent block mb-2; }
+  .section-title { @apply font-display text-5xl md:text-6xl font-light leading-tight text-gray-900; }
+  .section-divider { @apply w-11 h-0.5 bg-accent mt-5 mb-14; }
+  .tag { @apply inline-block px-3 py-1 bg-accent-light text-accent-mid rounded-full text-xs font-medium m-0.5; }
+  .tag-gold { @apply inline-block px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-medium m-0.5; }
+  .card { @apply bg-white border border-gray-200 rounded-2xl p-7 transition-all duration-300 hover:border-accent hover:shadow-lg hover:-translate-y-1; }
+  .btn-primary { @apply inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-lg text-sm font-medium transition-all duration-200 hover:bg-accent-mid hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2; }
+  .btn-outline { @apply inline-flex items-center gap-2 px-5 py-2.5 border-2 border-accent text-accent rounded-lg text-sm font-medium transition-all duration-200 hover:bg-accent-light hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2; }
+  .btn-ghost { @apply inline-flex items-center gap-2 px-5 py-2.5 text-gray-600 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
