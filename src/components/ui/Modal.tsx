@@ -1,32 +1,50 @@
-import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import React, { useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
 
 interface ModalProps {
-  open: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  title?: string;
+  isOpen: boolean
+  onClose: () => void
+  title?: string
+  children: React.ReactNode
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export function Modal({ open, onClose, children, title }: ModalProps) {
+const sizeClasses = {
+  sm: 'max-w-sm',
+  md: 'max-w-lg',
+  lg: 'max-w-2xl',
+  xl: 'max-w-4xl',
+}
+
+export const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  size = 'lg',
+}) => {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    },
+    [onClose]
+  )
+
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (open) {
-      document.addEventListener('keydown', handler);
-      document.body.style.overflow = 'hidden';
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'hidden'
     }
     return () => {
-      document.removeEventListener('keydown', handler);
-      document.body.style.overflow = '';
-    };
-  }, [open, onClose]);
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [isOpen, handleKeyDown])
 
   return (
     <AnimatePresence>
-      {open && (
+      {isOpen && (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
@@ -36,33 +54,54 @@ export function Modal({ open, onClose, children, title }: ModalProps) {
         >
           {/* Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-primary/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
           />
-          {/* Panel */}
+
+          {/* Modal */}
           <motion.div
-            className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-            initial={{ scale: 0.92, opacity: 0, y: 16 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.92, opacity: 0, y: 16 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className={`relative bg-white rounded-2xl shadow-2xl w-full ${sizeClasses[size]} max-h-[90vh] overflow-auto`}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={title ? 'modal-title' : undefined}
           >
-            <div className="flex items-center justify-between p-6 border-b border-gray-100">
-              {title && (
-                <h3 className="font-display text-2xl font-medium text-gray-900">{title}</h3>
-              )}
+            {/* Header */}
+            {title && (
+              <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                <h2 id="modal-title" className="font-display text-xl font-semibold text-primary">
+                  {title}
+                </h2>
+                <button
+                  onClick={onClose}
+                  className="p-2 rounded-lg text-text-muted hover:bg-slate-100 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech"
+                  aria-label="Close modal"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            )}
+
+            {!title && (
               <button
                 onClick={onClose}
-                className="ml-auto p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-lg text-text-muted hover:bg-slate-100 transition-colors z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech"
                 aria-label="Close modal"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
-            </div>
+            )}
+
             <div className="p-6">{children}</div>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  )
 }

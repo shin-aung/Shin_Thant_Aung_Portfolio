@@ -1,156 +1,103 @@
-import type { Project } from './types';
+export type Project = {
+  title: string
+  category: 'Work Case Study' | 'Personal' | 'Academic'
+  description: string
+  technologies: string[]
+  image?: string
+  githubUrl?: string
+  websiteUrl?: string
+  liveUrl?: string
+  caseStudy?: {
+    problem: string
+    role: string
+    features: string[]
+    outcome?: string
+  }
+}
 
 export const projects: Project[] = [
   {
-    id: 'asset-wins',
     title: 'Asset Wins',
-    category: ['Full Stack', 'Mobile', 'AI', 'Backend'],
-    summary:
-      'Cross-platform mobile and web asset management platform with AI-powered document processing.',
-    problem:
-      'Manual data entry from PDFs and spreadsheets was time-consuming and error-prone.',
-    features: [
-      'Android & iOS production deployments',
-      'OpenAI-powered PDF/CSV/PNG data extraction',
-      'Scalable RESTful API backend',
-      'Cross-platform mobile app with FlutterFlow',
-    ],
-    techStack: ['FlutterFlow', 'C#', '.NET', 'REST API', 'OpenAI API'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Core Developer',
-    highlights: [
-      'Led Android & iOS production deployments',
-      'Designed and built RESTful APIs with C# and .NET',
-      'Integrated OpenAI API to process unstructured document formats',
-    ],
-    featured: true,
-    badge: 'Professional',
+    category: 'Work Case Study',
+    description:
+      'A cross-platform mobile and web application for real-world asset management, featuring AI-powered document processing and production mobile deployments.',
+    technologies: ['FlutterFlow', 'C#', '.NET', 'REST API', 'OpenAI API', 'Android', 'iOS'],
+    image: '/images/projects/asset-wins.png',
+    caseStudy: {
+      problem: 'Clients needed a reliable cross-platform solution to manage assets with AI-powered document ingestion and structured data outputs.',
+      role: 'Core developer responsible for Android/iOS deployments, backend API design, and OpenAI integration.',
+      features: [
+        'Cross-platform mobile/web app built with FlutterFlow',
+        'Android and iOS production deployments with release pipelines',
+        'Secure RESTful backend APIs built with C# and .NET',
+        'OpenAI API integration for PDF, CSV, and image processing',
+      ],
+      outcome: 'Successfully deployed to both Google Play Store and Apple App Store with stable production releases.',
+    },
   },
   {
-    id: 'beny',
     title: 'Beny Internal Platform',
-    category: ['Full Stack', 'Frontend', 'Backend'],
-    summary:
-      'Internal company software platform with real-time data, authentication, and API documentation.',
-    problem:
-      'Staff needed a reliable, real-time internal tool with secure access control.',
-    features: [
-      'Authentication and authorization system',
-      'Real-time data updates with Supabase',
-      'Responsive UI with Next.js and Mantine',
-      'Swagger API documentation',
-      'CI/CD pipeline integration',
-    ],
-    techStack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Mantine', 'Swagger', 'Git'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Full Stack Developer',
-    highlights: [
-      'Built full-stack web apps with Next.js, React, and Mantine',
-      'Implemented auth and real-time data using Supabase',
-      'Contributed to CI/CD pipelines with Git',
-    ],
-    featured: true,
-    badge: 'Professional',
+    category: 'Work Case Study',
+    description:
+      'An internal company platform for managing workflows, featuring real-time data features, authentication, Swagger-documented APIs, and CI/CD pipelines.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Mantine', 'Supabase', 'Swagger', 'Git'],
+    image: '/images/projects/beny.png',
+    caseStudy: {
+      problem: 'The company needed robust internal tools with secure authentication, real-time features, and well-documented APIs.',
+      role: 'Full-stack developer responsible for frontend components, Supabase integration, and API documentation.',
+      features: [
+        'Responsive internal web app built with Next.js, React, and Mantine UI',
+        'Supabase authentication, authorization, and real-time data features',
+        'Swagger API documentation and testing for all service endpoints',
+        'CI/CD pipeline integration with Git-based workflows',
+      ],
+    },
   },
   {
-    id: 'tripzone',
     title: 'Tripzone',
-    category: ['Full Stack', 'Frontend'],
-    summary:
-      'Full-stack travel planning web application for managing trip details in one place.',
-    problem:
-      'Users need a simple, unified dashboard to plan and organise trip information.',
-    features: [
-      'Trip creation and management dashboard',
-      'Supabase backend for data persistence',
-      'Responsive design for all devices',
-      'Data creation, editing, and retrieval',
-    ],
-    techStack: ['React', 'TypeScript', 'Supabase'],
-    githubUrl: 'https://github.com/YOUR_USERNAME/tripzone',
-    screenshots: [],
-    role: 'Full Stack Developer',
-    highlights: [
-      'Built frontend with React and TypeScript',
-      'Integrated Supabase as backend database',
-    ],
-    featured: true,
-    badge: 'Academic',
+    category: 'Personal',
+    description:
+      'A full-stack travel planning web application with database-driven itinerary management, built using React and Supabase.',
+    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+    image: '/images/projects/tripzone.png',
+    githubUrl: 'https://github.com/shin-aung/React-Supabase',
   },
   {
-    id: 'google-sheets-app',
-    title: 'Google Sheets Dashboard',
-    category: ['Full Stack', 'Frontend'],
-    summary:
-      'Next.js web application using Google Sheets API as a live backend data source.',
-    features: [
-      'Google Sheets as live data backend',
-      'Dynamic data display and sync',
-      'Cloud workflow integration',
-    ],
-    techStack: ['Next.js', 'React', 'Google Sheets API', 'TypeScript'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Full Stack Developer',
-    highlights: ['Built Google Sheets integration for dynamic data retrieval'],
-    badge: 'Academic',
+    title: 'Next.js + Google Sheets Dashboard',
+    category: 'Personal',
+    description:
+      'A web application integrating Next.js with Google Sheets API for data submission, retrieval, and dynamic dashboard display.',
+    technologies: ['Next.js', 'Google Sheets API', 'TypeScript', 'REST API'],
+    image: '/images/projects/nextjs-sheets.png',
+    githubUrl: 'https://github.com/shin-aung/GO_GO_TRIP_Travelling_Agency',
+    websiteUrl: 'https://tripzone-travelling-agency.vercel.app/en',
   },
   {
-    id: 'java-games',
-    title: 'Java Game Suite',
-    category: ['Academic', 'Utility'],
-    summary:
-      'Sudoku, Minesweeper, and Calculator built with Java and OOP principles.',
-    features: [
-      'Fully working Sudoku and Minesweeper games',
-      'Calculator utility app',
-      'OOP-based modular architecture',
-      'Recursive algorithms for game logic',
-    ],
-    techStack: ['Java', 'OOP', 'Algorithms'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Developer',
-    highlights: ['Applied recursive algorithms for game logic', 'Modular OOP design'],
-    badge: 'Academic',
+    title: 'Java Games & Utility Apps',
+    category: 'Academic',
+    description:
+      'Collection of fully functional Java applications including Sudoku, Minesweeper, and a Calculator, applying OOP principles and recursive algorithms.',
+    technologies: ['Java', 'OOP', 'Recursion', 'Algorithms', 'Android Studio'],
+    image: '/images/projects/java-games.png',
+    githubUrl: 'https://github.com/shin-aung/Mobile_Computing_Games_App_A1_Part_2',
+    caseStudy: {
+      problem: 'Mobile computing coursework requiring full-stack Java game and utility applications.',
+      role: 'Sole developer.',
+      features: [
+        'Fully functioning Sudoku game with recursive backtracking solver',
+        'Minesweeper with dynamic grid generation and flood-fill reveal',
+        'Calculator with expression parsing',
+        'OOP principles applied for modular, maintainable code',
+      ],
+    },
   },
   {
-    id: 'php-cms',
-    title: 'PHP Content Management System',
-    category: ['Full Stack', 'Frontend'],
-    summary:
-      'Dynamic CMS built with PHP, HTML, and CSS with a focus on responsive design and UI/UX.',
-    features: [
-      'Server-side logic with PHP',
-      'Responsive design with HTML & CSS',
-      'Figma wireframe-driven UI/UX design',
-      'Full front-to-back integration',
-    ],
-    techStack: ['PHP', 'HTML', 'CSS', 'Figma'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Full Stack Developer',
-    highlights: ['UI/UX-first approach using Figma wireframes'],
-    badge: 'Academic',
+    title: 'CMS & Web Development Project',
+    category: 'Academic',
+    description:
+      'Dynamic websites built with HTML, CSS, and PHP, featuring responsive design, server-side logic, and UI/UX wireframes designed in Figma.',
+    technologies: ['HTML', 'CSS', 'PHP', 'Figma', 'UI/UX Design'],
+    image: '/images/projects/cms.png',
+    githubUrl: 'https://github.com/shin-aung/Content-Management-System',
   },
-  {
-    id: 'cpp-python-projects',
-    title: 'C++ & Python Projects',
-    category: ['Academic', 'Backend'],
-    summary:
-      'Academic data structures, algorithms, and software development projects in C++ and Python.',
-    features: [
-      'Data structure implementations (arrays, linked lists, stacks, queues)',
-      'Algorithm design and optimization',
-      'Problem-solving and debugging exercises',
-    ],
-    techStack: ['C++', 'Python'],
-    githubUrl: 'https://github.com/YOUR_USERNAME',
-    screenshots: [],
-    role: 'Developer',
-    highlights: ['Strong foundation in algorithms and data structures'],
-    badge: 'Academic',
-  },
-];
+]

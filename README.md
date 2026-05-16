@@ -1,42 +1,130 @@
 # Shin Thant Aung — Portfolio Website
 
-A professional portfolio built with **React + TypeScript + Vite**, styled with **Tailwind CSS v3**, and animated with **Framer Motion**.
+A professional portfolio website built with **React + TypeScript + Vite + Tailwind CSS + Framer Motion**.
 
 ## Quick Start
+
 ```bash
+# Install dependencies
 npm install
-npm run dev       # Development server at http://localhost:5173
-npm run build     # Production build → dist/
-npm run preview   # Preview production build
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## Customisation Checklist
-1. **GitHub/LinkedIn links** — search `YOUR_USERNAME` and `YOUR_LINKEDIN` in `src/` and replace
-2. **Resume PDF** → place at `public/resume/Shin_Thant_Aung_Resume.pdf`
-3. **Certificate images** → place in `public/certificates/`, update `imageUrl` in `src/data/index.ts`
-4. **Project screenshots** → place in `public/screenshots/`
-5. **Project GitHub URLs** → update `githubUrl` values in `src/data/projects.ts`
-6. **Profile photo** → add `public/profile.jpg` and add an `<img>` tag in `Hero.tsx`
+## Tech Stack
 
-## Folder Structure
+| Technology | Purpose |
+|---|---|
+| React 18 + TypeScript | Framework with full type safety |
+| Vite | Fast build tooling |
+| Tailwind CSS | Utility-first styling |
+| Framer Motion | Smooth animations |
+| Lucide React | Clean icon set |
+| React Helmet Async | SEO metadata |
+
+## Project Structure
+
 ```
-src/
-  components/
-    layout/   Navbar.tsx, Footer.tsx
-    sections/ Hero, About, Experience, Projects, Skills, Achievements, Education, Contact
-    ui/       Reveal.tsx (scroll animation), Modal.tsx (lightbox)
-  data/       projects.ts, experiences.ts, index.ts (skills/achievements/education)
-  hooks/      useReducedMotion.ts, useActiveSection.ts
-public/
-  resume/         ← Add your public resume PDF here
-  certificates/   ← Add certificate images here
-  screenshots/    ← Add project screenshots here
+shin-portfolio/
+├── public/
+│   ├── images/
+│   │   ├── profile/         ← shin-professional.jpg
+│   │   ├── about/           ← shin-about-me-board.jpg
+│   │   ├── projects/        ← project screenshots
+│   │   └── achievements/    ← certificate images
+│   └── documents/
+│       └── Shin_Thant_Aung_Resume_Public.pdf
+├── src/
+│   ├── components/
+│   │   ├── layout/          ← Navbar, Footer
+│   │   ├── sections/        ← All page sections
+│   │   └── ui/              ← Button, Modal
+│   ├── data/                ← All content as typed TS files
+│   ├── hooks/               ← useScrollSpy, useReducedMotion
+│   └── styles/              ← globals.css
+├── tailwind.config.js
+├── vite.config.ts
+└── tsconfig.json
 ```
 
-## Deploy
-- **Vercel**: `npx vercel` (recommended)
-- **Netlify**: drag & drop `dist/` at netlify.com/drop
-- **GitHub Pages**: add `base: '/repo-name/'` to `vite.config.ts` then push `dist/`
+## Sections
 
-## Privacy
-Do NOT publish your full address, FIN number, religion, or full transcript.
+1. **Hero** — Name, role, headline, profile image, CTA buttons, tech badges
+2. **About** — Bio, values, strengths, personal side
+3. **Experience** — Onify Tech (Asset Wins, Beny), Teaching
+4. **Projects** — Filterable grid with case study modals
+5. **Skills** — Grouped by category: Languages, Frameworks, Databases, Tools, AI/APIs
+6. **Achievements** — Certificate gallery with lightbox
+7. **Credentials** — Degree card, IELTS, Book Prize
+8. **Contact** — Email copy button, social links, resume download
+
+## Content Updates
+
+All content is managed in `src/data/`:
+
+- `profile.ts` — Name, bio, contact info, values, motto
+- `experience.ts` — Work history with expandable sub-projects
+- `projects.ts` — Projects with optional case studies
+- `skills.ts` — Skill groups and soft skills
+- `achievements.ts` — Awards, certifications, credentials
+
+### Adding GitHub Links
+
+In `src/data/projects.ts`, add your actual GitHub URLs:
+
+```typescript
+githubUrl: 'https://github.com/your-username/project-name',
+```
+
+### Adding LinkedIn URL
+
+In `src/data/profile.ts`:
+
+```typescript
+linkedin: 'https://linkedin.com/in/your-linkedin-username',
+```
+
+### Resume
+
+⚠️ **IMPORTANT**: Before deploying, replace `public/documents/Shin_Thant_Aung_Resume_Public.pdf` with your public-safe resume. Remove any sensitive personal information (FIN number, full address, religion).
+
+## Deployment
+
+### Vercel (Recommended)
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+
+```bash
+npm run build
+# Upload dist/ folder to Netlify
+```
+
+### GitHub Pages
+
+```bash
+npm run build
+# Push dist/ folder to gh-pages branch
+```
+
+## Performance Notes
+
+- All achievement images are lazy-loaded
+- Profile image uses `loading="eager"` for LCP
+- Framer Motion respects `prefers-reduced-motion`
+- Images in `public/` should be compressed to WebP/AVIF where possible
+
+## License
+
+Personal portfolio — all rights reserved by Shin Thant Aung.

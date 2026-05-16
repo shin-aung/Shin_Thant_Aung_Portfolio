@@ -1,141 +1,148 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Download, Mail } from 'lucide-react';
-import { useActiveSection } from '../../hooks/useActiveSection';
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Download } from 'lucide-react'
+import { useScrollSpy } from '../../hooks/useScrollSpy'
 
-const NAV_LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Achievements', href: '#achievements' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
-];
+const navItems = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'achievements', label: 'Achievements' },
+  { id: 'credentials', label: 'Credentials' },
+  { id: 'contact', label: 'Contact' },
+]
 
-const SECTION_IDS = ['hero', 'about', 'experience', 'projects', 'skills', 'achievements', 'education', 'contact'];
-
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const active = useActiveSection(SECTION_IDS);
+export const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const activeSection = useScrollSpy(navItems.map((n) => n.id))
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  const handleNav = (href: string) => {
-    setMobileOpen(false);
-    const id = href.replace('#', '');
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scrollTo = (id: string) => {
+    setMenuOpen(false)
+    const el = document.getElementById(id)
+    if (el) {
+      const offset = 72
+      window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' })
+    }
+  }
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 h-16 flex items-center transition-all duration-300 ${
-          scrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm' : ''
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100'
+            : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => handleNav('#hero')}
-            className="font-display text-xl font-semibold text-gray-900 tracking-wide hover:text-accent transition-colors"
+            onClick={() => scrollTo('home')}
+            className="font-display font-bold text-lg text-primary hover:text-accent-tech transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech rounded"
           >
-            STA
+            <span className="text-accent-tech">S</span>hin
+            <span className="text-accent-tech">.</span>
           </button>
 
-          {/* Desktop links */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {NAV_LINKS.map(({ label, href }) => {
-              const id = href.replace('#', '');
-              const isActive = active === id;
-              return (
-                <button
-                  key={label}
-                  onClick={() => handleNav(href)}
-                  className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive ? 'text-accent' : 'text-gray-500 hover:text-gray-900'
-                  }`}
-                >
-                  {label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-indicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full"
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a href="/resume/Shin_Thant_Aung_Resume.pdf" download className="btn-ghost text-sm">
-              <Download size={15} />
-              Resume
-            </a>
-            <button onClick={() => handleNav('#contact')} className="btn-primary text-sm">
-              <Mail size={15} />
-              Contact
-            </button>
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech ${
+                  activeSection === item.id
+                    ? 'text-accent-tech bg-teal-50'
+                    : 'text-text-muted hover:text-primary hover:bg-slate-50'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
-          {/* Mobile hamburger */}
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="/documents/Shin_Thant_Aung_Resume_Public.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-xl hover:bg-slate-800 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech"
+            >
+              <Download size={14} />
+              Resume
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
+            className="lg:hidden p-2 rounded-lg text-primary hover:bg-slate-100 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
-        </div>
+        </nav>
       </header>
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-30 bg-white pt-16"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            className="fixed inset-0 z-30 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <nav className="flex flex-col p-6 gap-2">
-              {NAV_LINKS.map(({ label, href }) => (
-                <button
-                  key={label}
-                  onClick={() => handleNav(href)}
-                  className="text-left px-4 py-3 text-lg font-medium text-gray-700 hover:text-accent hover:bg-accent-light rounded-xl transition-colors"
-                >
-                  {label}
-                </button>
-              ))}
-              <div className="mt-6 flex flex-col gap-3">
+            <div
+              className="absolute inset-0 bg-primary/50 backdrop-blur-sm"
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.div
+              className="absolute top-[72px] left-0 right-0 bg-white border-b border-slate-100 shadow-xl"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className={`text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-tech ${
+                      activeSection === item.id
+                        ? 'text-accent-tech bg-teal-50'
+                        : 'text-text-muted hover:text-primary hover:bg-slate-50'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
                 <a
-                  href="/resume/Shin_Thant_Aung_Resume.pdf"
+                  href="/documents/Shin_Thant_Aung_Resume_Public.pdf"
                   download
-                  className="btn-outline justify-center"
+                  className="mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white text-sm font-medium rounded-xl hover:bg-slate-800 transition-colors"
+                  onClick={() => setMenuOpen(false)}
                 >
-                  <Download size={16} /> Download Resume
+                  <Download size={14} />
+                  Download Resume
                 </a>
-                <button
-                  onClick={() => handleNav('#contact')}
-                  className="btn-primary justify-center"
-                >
-                  <Mail size={16} /> Contact Me
-                </button>
               </div>
-            </nav>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }
