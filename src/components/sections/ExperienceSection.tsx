@@ -34,7 +34,7 @@ export const ExperienceSection: React.FC = () => {
           </p>
           <h2 className="section-heading">Experience</h2>
           <p className="text-text-muted max-w-xl">
-            Real-world software development experience across mobile apps, web platforms, backend APIs, and AI integration.
+            Real-world software development experience across business platforms, web and mobile apps, backend APIs, and AI integration.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ export const ExperienceSection: React.FC = () => {
                       </div>
                       <span
                         className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                          exp.type === 'full-time'
+                          exp.type === 'full-time' || exp.type === 'internship'
                             ? 'bg-teal-50 text-teal-700 border border-teal-200'
                             : exp.type === 'teaching'
                             ? 'bg-amber-50 text-amber-700 border border-amber-200'
@@ -84,6 +84,8 @@ export const ExperienceSection: React.FC = () => {
                       >
                         {exp.type === 'full-time'
                           ? 'Full-time'
+                          : exp.type === 'internship'
+                          ? 'Internship'
                           : exp.type === 'teaching'
                           ? 'Part-time · Teaching'
                           : 'Part-time'}

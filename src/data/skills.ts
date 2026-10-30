@@ -13,27 +13,27 @@ export const skillGroups: SkillGroup[] = [
   {
     category: 'Frameworks & Libraries',
     icon: 'layers',
-    skills: ['React', 'Next.js', 'Node.js', '.NET', 'Mantine', 'Tailwind CSS', 'FlutterFlow'],
+    skills: ['React', 'Next.js', 'Node.js', '.NET', 'Mantine', 'Tailwind CSS', 'FlutterFlow', 'Vite', 'Supabase Edge Functions'],
   },
   {
     category: 'Databases',
     icon: 'database',
-    skills: ['PostgreSQL', 'MySQL', 'Supabase'],
+    skills: ['PostgreSQL', 'MySQL', 'Supabase', 'Row-Level Security'],
   },
   {
     category: 'Tools & Platforms',
     icon: 'wrench',
-    skills: ['Git', 'GitHub', 'Docker', 'VS Code', 'Android Studio', 'Azure Data Studio', 'Swagger', 'Weka', 'Tableau', 'Figma'],
+    skills: ['Git', 'GitHub', 'Docker', 'VS Code', 'Android Studio', 'Azure Data Studio', 'Swagger', 'Weka', 'Tableau', 'Figma', 'Vercel'],
   },
   {
     category: 'AI & APIs',
     icon: 'cpu',
-    skills: ['OpenAI API', 'REST API', 'Google Sheets API'],
+    skills: ['OpenAI API', 'REST API', 'Google Sheets API', 'Claude Code', 'Webhooks'],
   },
   {
     category: 'Practices',
     icon: 'settings',
-    skills: ['Agile / Scrum', 'CI/CD', 'API Testing', 'OOP', 'Version Control', 'UI/UX Design'],
+    skills: ['Agile / Scrum', 'CI/CD', 'API Testing', 'OOP', 'Version Control', 'UI/UX Design', 'Automated Testing', 'Database Migrations'],
   },
 ]
 

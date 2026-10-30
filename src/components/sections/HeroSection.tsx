@@ -80,6 +80,17 @@ export const HeroSection: React.FC = () => {
               {profile.headline}
             </motion.p>
 
+            {/* Pitch (current role) */}
+            <motion.p
+              className="text-slate-600 text-base leading-relaxed mb-3 max-w-xl"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.32}
+            >
+              {profile.pitch}
+            </motion.p>
+
             {/* Supporting line */}
             <motion.p
               className="text-text-muted text-sm leading-relaxed mb-8 max-w-xl"

@@ -1,12 +1,12 @@
 export const profile = {
   name: 'Shin Thant Aung',
-  role: 'Junior Full Stack Software Developer',
+  role: 'Full-Stack Software Developer',
   headline:
-    'I build clean, responsive, and practical software using React, TypeScript, .NET, Supabase, and AI integration.',
+    'I build business software end to end: the database and its rules, the web app people use every day, and the integrations around it.',
   pitch:
-    "A motivated software developer with hands-on experience building cross-platform mobile apps, responsive web platforms, backend APIs, AI-powered document processing, and database-driven systems.",
+    'In-house developer at Rev 22 Global Energia, where I built and run the platform the business operates on, from inventory and point of sale to commissions, events and reporting.',
   supportingLine:
-    'Bachelor of IT graduate from James Cook University Singapore with hands-on experience in web apps, mobile deployments, backend APIs, and AI-powered document processing.',
+    'Bachelor of IT with Distinction from James Cook University Singapore. Previously a full-stack developer at Onify Tech in Bangkok, shipping APIs, web apps and mobile releases.',
   motto: 'Progress, not perfection.',
   mottoExtended: 'Stay kind, stay curious, keep growing.',
   location: 'Singapore (Originally from Mandalay, Myanmar)',
@@ -20,18 +20,18 @@ export const profile = {
   resumeUrl: '/documents/Shin_Thant_Aung_Resume_Public.pdf',
   credibilityStrips: [
     'Full-stack Development',
+    'PostgreSQL & Supabase',
+    'Integrations & Automation',
     'AI Integration',
-    'Mobile Release Experience',
-    'Leadership',
   ],
   techBadges: [
     'React',
     'TypeScript',
-    '.NET',
-    'Supabase',
-    'OpenAI API',
     'PostgreSQL',
-    'GitHub',
+    'Supabase',
+    'Next.js',
+    '.NET',
+    'OpenAI API',
   ],
   values: [
     'Thoughtful',
@@ -50,9 +50,9 @@ export const profile = {
     { label: 'Driven to Grow', icon: 'trending-up' },
     { label: 'Technical Problem-solver', icon: 'cpu' },
   ],
-  aboutBio: `I am a motivated Junior Full Stack Software Developer from Mandalay, Myanmar, with a Bachelor of Information Technology from James Cook University Singapore. I enjoy building clean, responsive, and practical applications that solve real problems.
+  aboutBio: `I'm a full-stack software developer in Singapore, originally from Mandalay, Myanmar. I build business software end to end: the database and its rules, the web app people use every day, and the integrations that tie it to the rest of the business.
 
-My experience includes frontend development with React and Next.js, backend API development with C# and .NET, Supabase authentication and real-time features, and OpenAI API integration for document and image processing.
+At Rev 22 Global Energia, a Singapore health and wellness company, I'm the in-house developer. I built and run the platform the business operates on: stock across stores, warehouse and van, point of sale and invoicing, credit and voucher packages, therapy sessions, staff and affiliate commissions, rentals, events and reporting. Before that I was a junior full-stack developer at Onify Tech in Bangkok, building C#/.NET REST APIs, Next.js and React tools on Supabase, and OpenAI-powered document processing.
 
-I believe in progress, not perfection. I focus on learning continuously, writing maintainable code, communicating clearly with teams, and improving one step at a time.`,
+I believe in progress, not perfection. I use AI coding tools such as Claude Code every day, and I test and review everything I ship.`,
 }

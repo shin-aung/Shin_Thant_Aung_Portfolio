@@ -81,7 +81,7 @@ export const CredentialsSection: React.FC = () => {
         </motion.div>
 
         {/* IELTS + GPA highlight */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           {[
             {
               icon: <Award size={18} />,
@@ -108,6 +108,15 @@ export const CredentialsSection: React.FC = () => {
               date: 'Issued June 2024',
               value: 'Available',
               detail: 'Available on request · Verified via MyEquals',
+              color: 'slate',
+            },
+            {
+              icon: <GraduationCap size={18} />,
+              title: 'Postgraduate Diploma in Management',
+              subtitle: 'AceTek College, Singapore',
+              date: 'Nov 2025 – Jun 2026',
+              value: 'PG Diploma',
+              detail: 'Postgraduate study in management',
               color: 'slate',
             },
           ].map((cred, i) => (

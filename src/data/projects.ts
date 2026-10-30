@@ -17,6 +17,43 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Rev 22 Energia Operations Platform',
+    category: 'Work Case Study',
+    description:
+      'The inventory, point-of-sale and invoicing platform a Singapore health and wellness company runs on: stock, invoices, credit and voucher packages, therapy sessions, commissions, rentals, events and reports.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'Edge Functions'],
+    caseStudy: {
+      problem: 'A growing health and wellness business needed one reliable system for stock, sales, packages, commissions and events across its stores, warehouse and van.',
+      role: 'In-house developer responsible for the database design, business logic, React front end, integrations, testing and releases.',
+      features: [
+        'Invoices and payments, credit and voucher packages, therapy sessions, refunds and exchanges',
+        'Stock transfers between stores, warehouse and van, plus rentals with late fees',
+        'Staff and affiliate commissions, an affiliate portal and an audit log',
+        'Business rules in PostgreSQL functions with row-level security and Owner/Manager/Staff roles',
+        '400+ versioned migrations covered by automated database and browser tests',
+      ],
+      outcome: 'Used daily by the owners and store staff, and connected to TikTok Shop, Xero, cal.com, HitPay and Google Sheets.',
+    },
+  },
+  {
+    title: 'Event Ticketing & Registration Websites',
+    category: 'Work Case Study',
+    description:
+      "Ticketing and registration sites for the company's October celebration (19–20 Oct 2026) and its Thanksgiving Month health seminar (23–24 Nov 2026), feeding orders and sign-ups straight into the operations platform.",
+    technologies: ['React', 'TypeScript', 'Vercel', 'Supabase Edge Functions', 'HitPay', 'Google Sheets'],
+    liveUrl: 'https://healthtalk-rev22energia.vercel.app',
+    caseStudy: {
+      problem: 'Ticket orders and free sign-ups needed to reach the business system and the event team automatically.',
+      role: 'Built and deployed the sites and the Edge Functions behind them.',
+      features: [
+        'HitPay ticket orders and free sign-ups handled by Supabase Edge Functions',
+        'Orders become invoices, customer records and guest lists in the operations platform',
+        'Registrations sync to Google Sheets for the event team',
+        'Deployed on Vercel',
+      ],
+    },
+  },
+  {
     title: 'Asset Wins',
     category: 'Work Case Study',
     description:
@@ -54,13 +91,12 @@ export const projects: Project[] = [
     },
   },
   {
-    title: 'Tripzone',
+    title: 'GO GO TRIP',
     category: 'Personal',
     description:
-      'A full-stack travel planning web application with database-driven itinerary management, built using React and Supabase.',
-    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
-    image: '/images/projects/tripzone.png',
-    githubUrl: 'https://github.com/shin-aung/React-Supabase',
+      'A bilingual (English and Burmese) website for families planning trips around Southeast Asia: ready-made trip plans with booking links, visa-free rules for Myanmar passport holders, travel guides and a custom-planning request form, managed from a private admin area.',
+    technologies: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
+    liveUrl: 'https://gogotrip.vercel.app',
   },
   {
     title: 'Next.js + Google Sheets Dashboard',

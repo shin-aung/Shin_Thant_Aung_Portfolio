@@ -14,19 +14,19 @@ function App() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Shin Thant Aung | Junior Full Stack Software Developer</title>
+        <title>Shin Thant Aung | Full-Stack Software Developer</title>
         <meta
           name="description"
-          content="Portfolio of Shin Thant Aung, a Junior Full Stack Software Developer experienced in React, TypeScript, .NET, Supabase, OpenAI API integration, mobile deployments, and full-stack web applications."
+          content="Portfolio of Shin Thant Aung, a full-stack software developer in Singapore building business software with React, TypeScript, PostgreSQL/Supabase and C#/.NET."
         />
         <meta
           name="keywords"
-          content="Shin Thant Aung, React Developer, TypeScript Developer, Full Stack Developer, .NET Developer, Supabase, OpenAI API, Singapore Software Developer"
+          content="Shin Thant Aung, React Developer, TypeScript Developer, Full Stack Developer, .NET Developer, Supabase, OpenAI API, Singapore Software Developer, PostgreSQL, Supabase Developer"
         />
-        <meta property="og:title" content="Shin Thant Aung | Junior Full Stack Software Developer" />
+        <meta property="og:title" content="Shin Thant Aung | Full-Stack Software Developer" />
         <meta
           property="og:description"
-          content="Portfolio of Shin Thant Aung — building clean, responsive, and practical software."
+          content="Full-stack software developer in Singapore building business platforms, integrations and web apps with React, TypeScript and Supabase."
         />
         <meta property="og:type" content="website" />
       </Helmet>

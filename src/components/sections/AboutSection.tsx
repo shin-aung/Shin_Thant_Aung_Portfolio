@@ -23,8 +23,8 @@ const fadeIn = {
 
 const quickFacts = [
   { icon: <MapPin size={16} />, label: 'Location', value: 'Singapore (from Mandalay, Myanmar)' },
-  { icon: <GraduationCap size={16} />, label: 'Education', value: 'Bachelor of IT · James Cook University Singapore' },
-  { icon: <Briefcase size={16} />, label: 'Role', value: 'Junior Full Stack Software Developer' },
+  { icon: <GraduationCap size={16} />, label: 'Education', value: 'B.IT with Distinction · James Cook University Singapore' },
+  { icon: <Briefcase size={16} />, label: 'Role', value: 'Software Developer Intern · Rev 22 Global Energia' },
   { icon: <Heart size={16} />, label: 'Passion', value: 'Coding, learning, teamwork & growth' },
 ]
 
