@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  Source of public/documents/Shin_Thant_Aung_Resume_Public.pdf (A4, 2 pages).
+  To regenerate the PDF after editing, run from this folder:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+    --user-data-dir=/tmp/resume-chrome --print-to-pdf=../public/documents/Shin_Thant_Aung_Resume_Public.pdf \
+    "file://$PWD/resume.html"
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shin Thant Aung – Résumé</title>
+<style>
+  @page { size: A4; margin: 14mm 15mm 14mm 15mm; }
+  :root { --ink: #111; --rule: #222; --muted: #333; --link: #111; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Times New Roman", Times, "Liberation Serif", Georgia, serif;
+    font-size: 10.5pt;
+    line-height: 1.28;
+    font-kerning: none;
+  }
+  a { color: var(--link); text-decoration: none; }
+  header { text-align: center; margin-bottom: 7pt; }
+  h1 { font-size: 21pt; font-weight: bold; letter-spacing: 0.6pt; margin: 0 0 2pt; }
+  .tagline { font-size: 11pt; margin: 0 0 3pt; }
+  .contact { font-size: 10pt; margin: 0; }
+  .contact .sep { padding: 0 1pt; }
+  .contact .ci { white-space: nowrap; }
+
+  section { margin-top: 8pt; }
+  h2 {
+    font-size: 11pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5pt;
+    margin: 0 0 4pt; padding-bottom: 1.5pt; border-bottom: 0.8pt solid var(--rule);
+    break-after: avoid; page-break-after: avoid;
+  }
+  p { margin: 0; }
+  .profile p { text-align: justify; }
+
+  .entry { margin-bottom: 6pt; }
+  .entry:last-child { margin-bottom: 0; }
+  .head { break-inside: avoid; break-after: avoid; page-break-after: avoid; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .title { font-weight: bold; }
+  .date { font-style: italic; white-space: nowrap; flex-shrink: 0; }
+  .org { font-style: normal; color: var(--muted); }
+  .intro { font-style: italic; margin-top: 1pt; font-size: 10pt; }
+  .sub { font-weight: bold; font-style: italic; margin-top: 3pt; break-after: avoid; page-break-after: avoid; }
+  .sub + ul { margin-top: 0.5pt; }
+
+  ul { margin: 2pt 0 0; padding-left: 14pt; list-style: disc; }
+  li { margin: 0 0 1.2pt; padding-left: 1pt; break-inside: avoid; }
+
+  .skills p { margin-bottom: 1.5pt; padding-left: 12pt; text-indent: -12pt; }
+  .skills b { font-weight: bold; }
+  .keep { break-inside: avoid; }
+  p, li { text-wrap: pretty; }
+  .nw { white-space: nowrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SHIN THANT AUNG</h1>
+  <p class="tagline">Full-Stack Software Developer · React · TypeScript · PostgreSQL/Supabase · C#/.NET</p>
+  <p class="contact"><span class="ci">Singapore</span><span class="sep"> · </span><span class="ci">+65 8577 7325</span><span class="sep"> · </span><span class="ci"><a href="mailto:shin_thant_aung@outlook.com">shin_thant_aung@outlook.com</a></span><br><span class="ci"><a href="https://www.linkedin.com/in/shin-thant-aung-stanley">linkedin.com/in/shin-thant-aung-stanley</a></span><span class="sep"> · </span><span class="ci"><a href="https://github.com/shin-aung">github.com/shin-aung</a></span><span class="sep"> · </span><span class="ci"><a href="https://shin-thant-aung-portfolio.vercel.app">shin-thant-aung-portfolio.vercel.app</a></span></p>
+</header>
+
+<section class="profile">
+  <h2>Profile</h2>
+  <p>Full-stack software developer who builds business software end to end: the database and its rules, the web app people use every day, and the integrations that tie it to the rest of the business. In-house developer at Rev 22 Global Energia, where I built and run the company’s operations platform on React, TypeScript and Supabase (PostgreSQL). Previously at Onify Tech in Bangkok, shipping C#/.NET APIs, Next.js tools and Android and iOS releases. Bachelor of IT with Distinction from James Cook University. I use AI coding tools such as Claude Code every day, and I test and review everything I ship.</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="head">
+      <div class="row"><span class="title">Software Developer Intern</span><span class="date">Jul 2026 – Present</span></div>
+      <div class="org">Rev 22 Global Energia · Singapore</div>
+      <p class="intro">In-house developer for a Singapore health and wellness company with retail stores, therapy services, events and online sales.</p>
+    </div>
+    <ul>
+      <li>Built the inventory, point-of-sale and invoicing web app (React, TypeScript, Vite, Supabase/PostgreSQL) that owners and store staff use daily: invoices and payments, credit and voucher packages, therapy sessions, refunds and exchanges, stock transfers between stores, warehouse and van, rentals with late fees, promotions and reports.</li>
+      <li>Wrote the business logic as PostgreSQL functions and triggers with row-level security and Owner/Manager/Staff roles, shipped through 400+ versioned migrations and covered by automated database and browser tests.</li>
+      <li>Built staff and affiliate commission tracking, an affiliate portal with referral links, and an audit log of changes.</li>
+      <li>Integrated TikTok Shop orders and payouts (with a Xero export), cal.com bookings, HitPay payments and Google Sheets through Supabase Edge Functions and webhooks.</li>
+      <li>Built the company’s event websites on Vercel; ticket orders and registrations flow into the platform’s Events module with guest lists, early-bird pricing and door sales.</li>
+      <li>Automated follow-up for TikTok ad leads (Google Sheets, Pabbly Connect, WhatsApp reminders) and produce and schedule the company’s social media content.</li>
+      <li>Audited the app for security and data integrity and shipped the fixes in staged, verified releases.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="head">
+      <div class="row"><span class="title">Junior Software Engineer</span><span class="date">May 2025 – Sep 2025</span></div>
+      <div class="org">Onify Tech · Bangkok, Thailand · promoted from Software Developer Intern (Jan 2025 – May 2025)</div>
+    </div>
+    <div class="keep">
+      <p class="sub">Asset Wins — customer-facing mobile and web app for asset management (FlutterFlow)</p>
+      <ul>
+        <li>Designed and built secure RESTful backend APIs in C# and .NET.</li>
+        <li>Used OpenAI APIs to turn PDFs, CSVs and images into structured, machine-readable data.</li>
+        <li>Led Android and iOS production releases: build configuration, release pipelines and cross-platform compatibility.</li>
+      </ul>
+    </div>
+    <div class="keep">
+      <p class="sub">Beny — the company’s internal platform</p>
+      <ul>
+        <li>Built Next.js, React and Mantine web apps in TypeScript with Supabase authentication, authorisation and <span class="nw">real-time data.</span></li>
+        <li>Documented and tested APIs with Swagger, worked in Agile sprints with Git branches, pull-request reviews and CI/CD builds, and contributed to the company website (onifytech.com).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <div class="entry keep">
+    <div class="head">
+      <div class="row"><span class="title">Event ticketing and registration websites</span><span class="date">Sep 2026 – Present</span></div>
+      <div class="org">Rev 22 Global Energia · <a href="https://healthtalk-rev22energia.vercel.app">healthtalk-rev22energia.vercel.app</a></div>
+    </div>
+    <ul>
+      <li>Sites for the company’s October celebration (<span class="nw">19–20 Oct 2026</span>) and its Thanksgiving Month health seminar (<span class="nw">23–24 Nov 2026</span>), built with React and TypeScript on Vercel. HitPay orders and free sign-ups go through Supabase Edge Functions into the operations platform as invoices, customer records and guest lists, and sync to Google Sheets.</li>
+    </ul>
+  </div>
+  <div class="entry keep">
+    <div class="head">
+      <div class="row"><span class="title">GO GO TRIP — family travel-planning website</span><span class="date">May 2025 – Present</span></div>
+      <div class="org">Personal project · <a href="https://gogotrip.vercel.app">gogotrip.vercel.app</a></div>
+    </div>
+    <ul>
+      <li>Bilingual (English and Burmese) site with ready-made Southeast Asia trip plans and booking links, visa-free rules for Myanmar passport holders, travel guides, a custom-planning request form and a private admin area. React 19, TypeScript, Vite, Tailwind CSS and Supabase (PostgreSQL, sign-in, image storage).</li>
+    </ul>
+  </div>
+  <div class="entry keep">
+    <div class="head">
+      <div class="row"><span class="title">Academic projects</span></div>
+    </div>
+    <ul>
+      <li>Java mobile apps (Sudoku, Minesweeper, Calculator); PHP, HTML and CSS content-management websites; Tableau and Weka data-analysis projects.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="entry keep">
+    <div class="row"><span class="title">Postgraduate Diploma in Management</span><span class="date">Nov 2025 – Jun 2026</span></div>
+    <div class="org">AceTek College · Singapore</div>
+  </div>
+  <div class="entry keep">
+    <div class="row"><span class="title">Bachelor of Information Technology with Distinction</span><span class="date">2022 – 2024</span></div>
+    <div class="org">James Cook University Singapore · conferred June 2024 · GPA 6.04 / 7.00</div>
+    <p style="margin-top:1.5pt">High Distinctions: Database Modelling; Information Security; Introductory Machine Learning and Data Science; Multidisciplinary Project; Design Thinking III; Collective Intelligence and Entrepreneurship; Preparatory Mathematics (Book Prize, top scorer); Accounting for Decision Making; Principles of Data Analysis for Business.</p>
+  </div>
+</section>
+
+<section class="skills keep">
+  <h2>Skills</h2>
+  <p><b>Languages:</b> TypeScript, JavaScript, SQL, C#, Python, Java, C++, PHP</p>
+  <p><b>Front end:</b> React, Next.js, Vite, Tailwind CSS, Mantine, FlutterFlow</p>
+  <p><b>Back end &amp; data:</b> PostgreSQL (functions, triggers, row-level security), Supabase (Auth, Edge Functions, Storage), Node.js, .NET, MySQL, REST APIs, webhooks</p>
+  <p><b>Tools &amp; practices:</b> Git and GitHub, Vercel, Docker, Swagger, Jira, Claude Code, automated testing, database migrations, Agile/Scrum, CI/CD</p>
+  <p><b>Integrations:</b> OpenAI API, Google Sheets API, HitPay, cal.com, TikTok Shop, Xero (export)</p>
+</section>
+
+<section class="keep">
+  <h2>Certifications, Awards &amp; Languages</h2>
+  <ul>
+    <li>IELTS Academic, Overall Band 7.0 (CEFR C1), March 2025</li>
+    <li>Google Advanced Data Analytics courses (Coursera, 2024): Foundations of Data Science; Get Started with Python; Go Beyond the Numbers; The Power of Statistics; Capstone</li>
+    <li>Gold medals, Thailand International Mathematical Olympiad (TIMO) and Southeast Asian Mathematical Olympiad (SEAMO), 2019; Top 15 nationally, Myanmar National Mathematics Olympiad (Grade 10), 2019</li>
+    <li>Languages: Burmese (native), English (full professional)</li>
+  </ul>
+</section>
+</body>
+</html>
